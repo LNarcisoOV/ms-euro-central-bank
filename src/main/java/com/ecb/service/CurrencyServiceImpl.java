@@ -54,4 +54,16 @@ public class CurrencyServiceImpl implements CurrencyService {
 		return currencyOpt.isPresent() ? currencyOpt.get().getValue() : BigDecimal.ZERO;
 	}
 
+	@Override
+	public BigDecimal getAvarageValueBy(LocalDate startDate, LocalDate endDate, String originCurrency) {
+		List<Currency> currencyListByParameters = currencyList.stream()
+		.filter(currency -> currency.getName().equalsIgnoreCase(originCurrency)
+				&& (currency.getDate().isAfter(startDate.minusDays(1)) && currency.getDate().isBefore(endDate.plusDays(1))))
+		.collect(Collectors.toList());
+		
+		BigDecimal sum = currencyListByParameters.stream().map(Currency::getValue).reduce(BigDecimal::add).orElse(BigDecimal.ZERO);
+	
+		return sum.divide(BigDecimal.valueOf(currencyListByParameters.size()));
+	}
+
 }

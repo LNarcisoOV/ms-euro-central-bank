@@ -15,4 +15,6 @@ public interface CurrencyService {
 
 	BigDecimal getConvertedValueByParameters(LocalDate startDate, LocalDate endDate, String originCurrency);
 
+	BigDecimal getAvarageValueBy(LocalDate startDate, LocalDate endDate, String originCurrency);
+
 }

@@ -41,5 +41,13 @@ public class CurrencyController {
 			@PathVariable String originCurrency) {
 		return currencyService.getConvertedValueByParameters(startDate, endDate, originCurrency);
 	}
+	
+	@GetMapping("/avarage/{startDate}/{endDate}/{originCurrency}")
+	public BigDecimal getAvarageValue(
+			@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate startDate,
+			@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate endDate,
+			@PathVariable String originCurrency) {
+		return currencyService.getAvarageValueBy(startDate, endDate, originCurrency);
+	}
 
 }
