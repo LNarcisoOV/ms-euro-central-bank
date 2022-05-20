@@ -53,9 +53,11 @@ public class CsvConfig {
 			if (counterLines > 0) {
 				String[] columns = line.split(",");
 				for (int i = 1; i < 42; i++) {
+					
 					Currency currency = new Currency();
 					currency.setDate(LocalDate.parse(columns[0]));
 					currency.setName(headerSplitted[i]);
+					
 					if (columns[i].equals("N/A")) {
 						currency.setValue(BigDecimal.ZERO);
 					} else {
