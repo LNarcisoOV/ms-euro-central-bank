@@ -10,7 +10,9 @@ public interface CurrencyService {
 	
 	List<Currency> getByDate(LocalDate date);
 
-	BigDecimal getConvertedValueByParameter(LocalDate startDate, String originCurrency, String destinationCurrency,
+	BigDecimal getConvertedValueByParameters(LocalDate startDate, String originCurrency, String destinationCurrency,
 			BigDecimal value);
+
+	BigDecimal getConvertedValueByParameters(LocalDate startDate, LocalDate endDate, String originCurrency);
 
 }
