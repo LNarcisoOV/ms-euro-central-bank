@@ -1,5 +1,6 @@
 package com.ecb.controller;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -16,13 +17,21 @@ import com.ecb.service.CurrencyService;
 @RestController
 @RequestMapping("/currency")
 public class CurrencyController {
-	
+
 	@Autowired
 	private CurrencyService currencyService;
-	
+
 	@GetMapping("/{startDate}")
 	public List<Currency> getByDate(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate startDate) {
 		return currencyService.getByDate(startDate);
+	}
+
+	@GetMapping("/{startDate}/{originCurrency}/{destinationCurrency}/{value}")
+	public BigDecimal getConvertedValueByParameter(
+			@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate startDate,
+			@PathVariable String originCurrency, @PathVariable String destinationCurrency,
+			@PathVariable BigDecimal value) {
+		return currencyService.getConvertedValueByParameter(startDate, originCurrency, destinationCurrency, value);
 	}
 
 }
