@@ -35,11 +35,11 @@ public class CurrencyController {
 	}
 	
 	@GetMapping("/{startDate}/{endDate}/{originCurrency}")
-	public BigDecimal getConvertedValueByParameter(
+	public BigDecimal getMostHighValueByParameters(
 			@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate startDate,
 			@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate endDate,
 			@PathVariable String originCurrency) {
-		return currencyService.getConvertedValueByParameters(startDate, endDate, originCurrency);
+		return currencyService.getMostHighValueByParameters(startDate, endDate, originCurrency);
 	}
 	
 	@GetMapping("/avarage/{startDate}/{endDate}/{originCurrency}")

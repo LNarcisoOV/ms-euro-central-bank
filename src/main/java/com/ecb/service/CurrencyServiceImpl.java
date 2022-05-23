@@ -46,7 +46,7 @@ public class CurrencyServiceImpl implements CurrencyService {
 	}
 
 	@Override
-	public BigDecimal getConvertedValueByParameters(LocalDate startDate, LocalDate endDate, String originCurrency) {
+	public BigDecimal getMostHighValueByParameters(LocalDate startDate, LocalDate endDate, String originCurrency) {
 		Optional<Currency> currencyOpt = currencyList.stream()
 				.filter(currency -> currency.getName().equalsIgnoreCase(originCurrency)
 						&& (currency.getDate().isAfter(startDate.minusDays(1)) && currency.getDate().isBefore(endDate.plusDays(1))))

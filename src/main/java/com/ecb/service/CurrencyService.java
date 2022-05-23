@@ -13,7 +13,7 @@ public interface CurrencyService {
 	BigDecimal getConvertedValueByParameters(LocalDate startDate, String originCurrency, String destinationCurrency,
 			BigDecimal value);
 
-	BigDecimal getConvertedValueByParameters(LocalDate startDate, LocalDate endDate, String originCurrency);
+	BigDecimal getMostHighValueByParameters(LocalDate startDate, LocalDate endDate, String originCurrency);
 
 	BigDecimal getAvarageValueBy(LocalDate startDate, LocalDate endDate, String originCurrency);
 

@@ -9,6 +9,15 @@ public class Currency {
 	private LocalDate date;
 	private String name;
 	private BigDecimal value;
+	
+	public Currency() {
+	}
+	
+	public Currency(LocalDate date, String name, BigDecimal value ) {
+		this.date = date;
+		this.name = name;
+		this.value = value;
+	}
 
 	public LocalDate getDate() {
 		return date;
