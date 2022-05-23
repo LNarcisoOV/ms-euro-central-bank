@@ -31,15 +31,15 @@ public class CurrencyController {
 			@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate startDate,
 			@PathVariable String originCurrency, @PathVariable String destinationCurrency,
 			@PathVariable BigDecimal value) {
-		return currencyService.getConvertedValueByParameters(startDate, originCurrency, destinationCurrency, value);
+		return currencyService.getConvertedValueBy(startDate, originCurrency, destinationCurrency, value);
 	}
 	
 	@GetMapping("/{startDate}/{endDate}/{originCurrency}")
-	public BigDecimal getMostHighValueByParameters(
+	public BigDecimal getHigherValueByParameters(
 			@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate startDate,
 			@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate endDate,
 			@PathVariable String originCurrency) {
-		return currencyService.getMostHighValueByParameters(startDate, endDate, originCurrency);
+		return currencyService.getHigherValueBy(startDate, endDate, originCurrency);
 	}
 	
 	@GetMapping("/avarage/{startDate}/{endDate}/{originCurrency}")
